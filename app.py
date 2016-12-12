@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask_ask import Ask, statement
+from flask_ask import Ask, statement, question
 
 app = Flask(__name__)
 ask = Ask(app,'/')
@@ -13,7 +13,7 @@ def launch():
 def response(phrase):
     newPhrase = phrase[0].upper() + phrase[1:]
     text = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, newPhrase )
-    return statement(text).simple_card(text)
+    return question(text).reprompt("Are you still there?").simple_card(text)
 
 #_________________________________________________________________
 import tensorflow as tf
