@@ -11,7 +11,8 @@ def launch():
 
 @ask.intent('TalkWithMeIntent', mapping={'phrase': 'Phrase'})
 def response(phrase):
-    text = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, phrase )
+    newPhrase = phrase[0].upper() + phrase[1:]
+    text = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, newPhrase )
     return statement(text).simple_card(text)
 
 #_________________________________________________________________

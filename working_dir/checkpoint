@@ -1,4 +1,4 @@
-model_checkpoint_path: "seq2seq.ckpt-176700"
+model_checkpoint_path: "seq2seq.ckpt-70800"
 all_model_checkpoint_paths: "seq2seq.ckpt-175800"
 all_model_checkpoint_paths: "seq2seq.ckpt-176100"
 all_model_checkpoint_paths: "seq2seq.ckpt-176400"
