@@ -9,9 +9,9 @@ def launch():
     text = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, 'Hi' )
     return statement(text).simple_card(text)
 
-@ask.intent('TalkWithMeIntent')
-def response():
-    text = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, 'this is a response' )
+@ask.intent('TalkWithMeIntent', mapping={'phrase': 'Phrase'})
+def response(phrase):
+    text = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, phrase )
     return statement(text).simple_card(text)
 
 #_________________________________________________________________
