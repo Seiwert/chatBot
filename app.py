@@ -7,7 +7,7 @@ ask = Ask(app,'/')
 @ask.launch
 def launch():
     text = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, 'Hi' )
-    return statement(text).simple_card(text)
+    return question(text).reprompt("Are you still there?").simple_card(text)
 
 @ask.intent('TalkWithMeIntent', mapping={'phrase': 'Phrase'})
 def response(phrase):
