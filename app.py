@@ -13,6 +13,10 @@ def launch():
 def response(phrase):
     newPhrase = phrase[0].upper() + phrase[1:]
     text = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, newPhrase )
+    if "_UNK" in text:
+        text = "Let's talk about something else."
+    else:
+        text = text.replace(" ' ","'")
     return question(text).reprompt("Are you still there?").simple_card(text)
 
 #_________________________________________________________________
